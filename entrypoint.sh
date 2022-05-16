@@ -16,7 +16,6 @@ content="/data"
 addgroup --gid "${PGID}" --system openttd &>/dev/null
 adduser --uid "${PUID}" --system --ingroup openttd --disabled-password --home "$content" openttd &>/dev/null
 
-chown -R openttd:openttd "$content"
 cd "$content"
 
 # openttd option arguments
@@ -31,8 +30,8 @@ fi
 args+=("-D0.0.0.0:3979")
 
 if [[ ! -f "openttd.cfg" ]]; then
-  log "Creating default config"
-  cp /default.cfg ./openttd.cfg
+  log "Creating empty config"
+  touch ./openttd.cfg
 fi
 args+=("-c openttd.cfg")
 
@@ -54,6 +53,8 @@ if [[ -n $save_file ]]; then
   log "Loading save: $save_file"
   args+=("-g $save_file")
 fi
+
+chown -R openttd:openttd "$content"
 
 log "Starting server with options: ${args[*]}"
 sudo -u openttd sh -c "/usr/games/openttd ${args[*]}"

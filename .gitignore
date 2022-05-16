@@ -6,6 +6,6 @@
 
 !/Dockerfile
 !/entrypoint.sh
-!/configs/*.cfg
 
+!/example.cfg
 !/README.md

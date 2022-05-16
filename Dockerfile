@@ -39,7 +39,6 @@ RUN echo "${OPENGFX_CHECKSUM} /tmp/opengfx.zip" | sha256sum -c - \
     && tar xvf /tmp/opengfx-${OPENGFX_VERSION}.tar               \
     && rm -f /tmp/opengfx.*
 
-COPY configs/default.cfg /default.cfg
 COPY entrypoint.sh /entrypoint.sh
 
 ENV PUID=1000

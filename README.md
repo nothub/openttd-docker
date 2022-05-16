@@ -65,7 +65,7 @@ services:
 docker run --interactive --tty --rm                 \
   -p "3979:3979/tcp"                                \
   -p "3979:3979/udp"                                \
-  -v "${PWD}/configs/example.cfg:/data/openttd.cfg" \
+  -v "${PWD}/example.cfg:/data/openttd.cfg" \
   n0thub/openttd:latest
 ```
 
@@ -80,7 +80,7 @@ services:
       - "3979:3979/tcp"
       - "3979:3979/udp"
     volumes:
-      - ./configs/example.cfg:/data/openttd.cfg
+      - ./example.cfg:/data/openttd.cfg
 ```
 
 ---
@@ -224,7 +224,7 @@ docker run --interactive --tty --rm                 \
   -p "3979:3979/tcp"                                \
   -p "3979:3979/udp"                                \
   -v "${PWD}/data/:/data/"                          \
-  -v "${PWD}/configs/example.cfg:/data/openttd.cfg" \
+  -v "${PWD}/example.cfg:/data/openttd.cfg" \
   -v "${PWD}/template.sav:/data/save/template.sav"  \
   -e PUID=2000                                      \
   -e PGID=3000                                      \
@@ -244,7 +244,7 @@ services:
       - "3979:3979/udp"
     volumes:
       - ./data/:/data/
-      - ./configs/example.cfg:/data/openttd.cfg
+      - ./example.cfg:/data/openttd.cfg
       - ./template.sav:/data/save/template.sav
     environment:
       - PUID=2000
