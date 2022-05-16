@@ -1,0 +1,11 @@
+*
+!*/
+
+!/.gitignore
+!/.github/**/*.yml
+
+!/Dockerfile
+!/entrypoint.sh
+!/configs/*.cfg
+
+!/README.md
