@@ -53,6 +53,8 @@ services:
       - "3979:3979/udp"
 ```
 
+---
+
 </details>
 
 <details><summary>Custom config</summary>
@@ -80,6 +82,38 @@ services:
     volumes:
       - ./configs/example.cfg:/data/openttd.cfg
 ```
+
+---
+
+</details>
+
+<details><summary>Persistent storage mount</summary>
+
+**docker run**
+
+```bash
+docker run --interactive --tty --rm \
+  -p "3979:3979/tcp"                \
+  -p "3979:3979/udp"                \
+  -v "${PWD}/data/:/data/"          \
+  n0thub/openttd:latest
+```
+
+**docker compose**
+
+```yaml
+version: '3'
+services:
+  openttd:
+    image: n0thub/openttd:latest
+    ports:
+      - "3979:3979/tcp"
+      - "3979:3979/udp"
+    volumes:
+      - ./data/:/data/
+```
+
+---
 
 </details>
 
@@ -112,6 +146,8 @@ services:
       - LOAD_AUTOSAVE="true"
 ```
 
+---
+
 </details>
 
 <details><summary>Load template save</summary>
@@ -139,6 +175,8 @@ services:
     volumes:
       - ./template.sav:/data/save/template.sav
 ```
+
+---
 
 </details>
 
@@ -172,6 +210,8 @@ services:
       - PUID=2000
       - PGID=3000
 ```
+
+---
 
 </details>
 
@@ -211,6 +251,8 @@ services:
       - PGID=3000
       - LOAD_AUTOSAVE="true"
 ```
+
+---
 
 </details>
 
