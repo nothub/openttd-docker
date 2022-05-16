@@ -38,7 +38,7 @@ A custom user or group id can be defined by setting the environment variable `PU
 docker run --interactive --tty --rm \
   -p "3979:3979/tcp"                \
   -p "3979:3979/udp"                \
-  openttd:latest
+  n0thub/openttd:latest
 ```
 
 **docker compose**
@@ -47,7 +47,7 @@ docker run --interactive --tty --rm \
 version: '3'
 services:
   openttd:
-    image: openttd:latest
+    image: n0thub/openttd:latest
     ports:
       - "3979:3979/tcp"
       - "3979:3979/udp"
@@ -64,7 +64,7 @@ docker run --interactive --tty --rm                 \
   -p "3979:3979/tcp"                                \
   -p "3979:3979/udp"                                \
   -v "${PWD}/configs/example.cfg:/data/openttd.cfg" \
-  openttd:latest
+  n0thub/openttd:latest
 ```
 
 **docker compose**
@@ -73,7 +73,7 @@ docker run --interactive --tty --rm                 \
 version: '3'
 services:
   openttd:
-    image: openttd:latest
+    image: n0thub/openttd:latest
     ports:
       - "3979:3979/tcp"
       - "3979:3979/udp"
@@ -93,7 +93,7 @@ docker run --interactive --tty --rm \
   -p "3979:3979/udp"                \
   -v "${PWD}/data/:/data/"          \
   -e LOAD_AUTOSAVE="true"           \
-  openttd:latest
+  n0thub/openttd:latest
 ```
 
 **docker compose**
@@ -102,7 +102,7 @@ docker run --interactive --tty --rm \
 version: '3'
 services:
   openttd:
-    image: openttd:latest
+    image: n0thub/openttd:latest
     ports:
       - "3979:3979/tcp"
       - "3979:3979/udp"
@@ -123,7 +123,7 @@ docker run --interactive --tty --rm                \
   -p "3979:3979/tcp"                               \
   -p "3979:3979/udp"                               \
   -v "${PWD}/template.sav:/data/save/template.sav" \
-  openttd:latest
+  n0thub/openttd:latest
 ```
 
 **docker compose**
@@ -132,7 +132,7 @@ docker run --interactive --tty --rm                \
 version: '3'
 services:
   openttd:
-    image: openttd:latest
+    image: n0thub/openttd:latest
     ports:
       - "3979:3979/tcp"
       - "3979:3979/udp"
@@ -153,7 +153,7 @@ docker run --interactive --tty --rm \
   -v "${PWD}/data/:/data/"          \
   -e PUID=2000                      \
   -e PGID=3000                      \
-  openttd:latest
+  n0thub/openttd:latest
 ```
 
 **docker compose**
@@ -162,7 +162,7 @@ docker run --interactive --tty --rm \
 version: '3'
 services:
   openttd:
-    image: openttd:latest
+    image: n0thub/openttd:latest
     ports:
       - "3979:3979/tcp"
       - "3979:3979/udp"
@@ -189,7 +189,7 @@ docker run --interactive --tty --rm                 \
   -e PUID=2000                                      \
   -e PGID=3000                                      \
   -e LOAD_AUTOSAVE="true"                           \
-  openttd:latest
+  n0thub/openttd:latest
 ```
 
 **docker compose**
@@ -198,7 +198,7 @@ docker run --interactive --tty --rm                 \
 version: '3'
 services:
   openttd:
-    image: openttd:latest
+    image: n0thub/openttd:latest
     ports:
       - "3979:3979/tcp"
       - "3979:3979/udp"
@@ -219,5 +219,5 @@ services:
 Arguments will be relayed to the OpenTTD process if supplied to the container:
 
 ```bash
-docker run --rm openttd:latest --help
+docker run --rm n0thub/openttd:latest --help
 ```
