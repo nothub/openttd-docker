@@ -20,11 +20,11 @@ If the environment variable LOAD_AUTOSAVE is set to `true`, the latest autosave 
 
 A template save file can be loaded by mounting the file to: `/data/save/template.sav`
 
-(The file will be ignored if LOAD_AUTOSAVE is set to `true` and an autosave file is present in `/data/save/autosave/`)
+The file will be ignored if LOAD_AUTOSAVE is set to `true` and an autosave file is present in `/data/save/autosave/`.
 
 #### Custom user or group id
 
-A custom user or group id can be defined by setting the environment variable `PUID` or `PGID`, e.g. `PUID=2000` or `PGID=3000`
+A custom user or group id can be defined by setting the environment variable `PUID` or `PGID`, e.g. `PUID=2000` or `PGID=3000`.
 
 ---
 
@@ -62,9 +62,9 @@ services:
 **docker run**
 
 ```bash
-docker run --interactive --tty --rm                 \
-  -p "3979:3979/tcp"                                \
-  -p "3979:3979/udp"                                \
+docker run --interactive --tty --rm         \
+  -p "3979:3979/tcp"                        \
+  -p "3979:3979/udp"                        \
   -v "${PWD}/example.cfg:/data/openttd.cfg" \
   n0thub/openttd:latest
 ```
@@ -220,15 +220,15 @@ services:
 **docker run**
 
 ```bash
-docker run --interactive --tty --rm                 \
-  -p "3979:3979/tcp"                                \
-  -p "3979:3979/udp"                                \
-  -v "${PWD}/data/:/data/"                          \
-  -v "${PWD}/example.cfg:/data/openttd.cfg" \
-  -v "${PWD}/template.sav:/data/save/template.sav"  \
-  -e PUID=2000                                      \
-  -e PGID=3000                                      \
-  -e LOAD_AUTOSAVE="true"                           \
+docker run --interactive --tty --rm                \
+  -p "3979:3979/tcp"                               \
+  -p "3979:3979/udp"                               \
+  -v "${PWD}/data/:/data/"                         \
+  -v "${PWD}/example.cfg:/data/openttd.cfg"        \
+  -v "${PWD}/template.sav:/data/save/template.sav" \
+  -e PUID=2000                                     \
+  -e PGID=3000                                     \
+  -e LOAD_AUTOSAVE="true"                          \
   n0thub/openttd:latest
 ```
 
