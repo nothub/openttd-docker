@@ -28,6 +28,32 @@ A custom user or group id can be defined by setting the environment variable `PU
 
 ---
 
+### Online content
+
+To download online content in a running container, use the `content` command:
+
+```
+content update
+content state ITL Houses
+content select 54540301
+content download
+```
+
+For online content to be loaded from persistent storage, make sure the content file is:
+
+Present in the mounted volume, e.g.
+
+`54540301-ITL_Houses-2.1.tar`:`/data/content_download/newgrf/54540301-ITL_Houses-2.1.tar`
+
+And configured in the `/data/openttd.cfg` config file, e.g.
+
+```
+[newgrf]
+54540301|F7CDD4F730E4F3EE87100CE42E5070AE|itl_houses-2.1/itl_houses.grf = 0 0 0
+```
+
+---
+
 ### Examples
 
 <details><summary>Defaults</summary>
