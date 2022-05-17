@@ -44,8 +44,6 @@ COPY entrypoint.sh /entrypoint.sh
 ENV PUID=1000
 ENV PGID=1000
 
-ENV LOAD_AUTOSAVE="false"
-
 EXPOSE 3979/tcp 3979/udp
 
 ENTRYPOINT ["tini", "-vv", "--", "/entrypoint.sh"]

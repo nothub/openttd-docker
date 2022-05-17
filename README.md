@@ -14,13 +14,13 @@ Available options are listed in the official [wiki](https://wiki.openttd.org/en/
 
 #### Load latest autosave
 
-If the environment variable LOAD_AUTOSAVE is set to `true`, the latest autosave present in `/data/save/autosave/` will be loaded.
+If the environment variable LOAD_AUTOSAVE is set, the latest autosave present in `/data/save/autosave/` will be loaded.
 
 #### Load template save
 
 A template save file can be loaded by mounting the file to: `/data/save/template.sav`
 
-The file will be ignored if LOAD_AUTOSAVE is set to `true` and an autosave file is present in `/data/save/autosave/`.
+The file will be ignored if LOAD_AUTOSAVE is set and an autosave file is present in `/data/save/autosave/`.
 
 #### Custom user or group id
 

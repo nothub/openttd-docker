@@ -35,7 +35,7 @@ if [[ ! -f "openttd.cfg" ]]; then
 fi
 args+=("-c openttd.cfg")
 
-if [[ $LOAD_AUTOSAVE == "true" ]]; then
+if [[ -n $LOAD_AUTOSAVE ]]; then
   # shellcheck disable=SC2010 # ls sort by time
   latest_savegame=$(ls -t "save/autosave/" 2>/dev/null | grep -E "autosave[0-9]+.sav" | head -1)
   if [[ -n "$latest_savegame" ]]; then
