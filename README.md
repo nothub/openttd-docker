@@ -43,7 +43,7 @@ For online content to be loaded from persistent storage, make sure the content f
 
 Present in the mounted volume, e.g.
 
-`54540301-ITL_Houses-2.1.tar`:`/data/content_download/newgrf/54540301-ITL_Houses-2.1.tar`
+`/data/content_download/newgrf/54540301-ITL_Houses-2.1.tar`
 
 And configured in the `/data/openttd.cfg` config file, e.g.
 
