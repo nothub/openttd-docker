@@ -54,7 +54,7 @@ And configured in the `/data/openttd.cfg` config file, e.g.
 
 ### Ports
 
-If no port mapping is configured for the container, a server with `server_game_type = public` will still register with the [Game Coordinator](https://github.com/OpenTTD/game-coordinator) and attempts to use `Connection type: Behind NAT` to allow clients to establish connections.
+If no port mapping is configured for the container, a server with `server_game_type = public` will still register with the [Game Coordinator](https://github.com/OpenTTD/game-coordinator) and attempt to use `Connection type: Behind NAT` to establish connections with clients.
 
 ---
 
