@@ -1,13 +1,10 @@
 name: publish
-
 on:
   push:
     branches:
       - main
-      - master
   schedule:
     - cron: '20 4 * * *'
-
 jobs:
   main:
     runs-on: ubuntu-latest
