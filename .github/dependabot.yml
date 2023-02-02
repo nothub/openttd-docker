@@ -6,8 +6,3 @@ updates:
       interval: "daily"
     assignees:
       - "nothub"
-    reviewers:
-      - "nothub"
-    commit-message:
-      prefix: "github-actions"
-      include: "scope"

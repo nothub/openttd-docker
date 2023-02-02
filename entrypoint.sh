@@ -5,7 +5,8 @@
 # with -c option, the content directory is the directory containing the loaded cfg.
 # As workaround, we always supply the -c option, using a default config file if no custom config is present.
 
-set -e
+set -o errexit
+set -o pipefail
 
 log() {
   echo >&2 "$*"
@@ -14,7 +15,7 @@ log() {
 content="/data"
 
 addgroup --gid "${PGID}" --system openttd &>/dev/null
-adduser --uid "${PUID}" --system --ingroup openttd --disabled-password --home "$content" openttd &>/dev/null
+adduser  --uid "${PUID}" --system --ingroup openttd --disabled-password --home "$content" openttd &>/dev/null
 
 cd "$content"
 
