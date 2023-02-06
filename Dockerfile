@@ -1,8 +1,8 @@
 FROM debian:11
 
-ARG OPENTTD_VERSION="12.2"
-ARG OPENTTD_CHECKSUM="017df609442ddd40fd24da164755b3da3aba16f6de36677e7bffbe041c35715c"
-ARG OPENTTD_URL="https://cdn.openttd.org/openttd-releases/${OPENTTD_VERSION}/openttd-${OPENTTD_VERSION}-linux-debian-bullseye-amd64.deb"
+ARG OPENTTD_VERSION="13.0"
+ARG OPENTTD_CHECKSUM="03828850972b8bf68867d5aa252b4689859a477d92334024659c3134237920f5"
+ARG OPENTTD_URL="https://cdn.openttd.org/openttd-releases/${OPENTTD_VERSION}/openttd-${OPENTTD_VERSION}-linux-generic-amd64.tar.xz"
 
 ARG OPENGFX_VERSION="7.1"
 ARG OPENGFX_CHECKSUM="928fcf34efd0719a3560cbab6821d71ce686b6315e8825360fba87a7a94d7846"
@@ -20,24 +20,23 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update            \
         sudo                                                 \
         tini                                                 \
         unzip                                                \
+        xz-utils                                             \
     && apt-get clean      --quiet --yes                      \
     && apt-get autoremove --quiet --yes                      \
     && rm -rf /var/lib/apt/lists/*
 
 # install openttd
-ADD ${OPENTTD_URL} /tmp/openttd.deb
-RUN echo "${OPENTTD_CHECKSUM} /tmp/openttd.deb" | sha256sum -c - \
-    && dpkg --install /tmp/openttd.deb                           \
-    && rm -f /tmp/openttd.deb
+ADD ${OPENTTD_URL} /tmp/openttd.tar.xz
+RUN echo "${OPENTTD_CHECKSUM} /tmp/openttd.tar.xz" | sha256sum -c -               \
+    && mkdir -p /opt/openttd/                                                     \
+    && tar xvf /tmp/openttd.tar.xz --directory /opt/openttd/ --strip-components=1 \
+    && rm -f /tmp/openttd.tar.xz
 
 # install opengfx
 ADD ${OPENGFX_URL} /tmp/opengfx.zip
 RUN echo "${OPENGFX_CHECKSUM} /tmp/opengfx.zip" | sha256sum -c - \
-    && unzip /tmp/opengfx.zip -d /tmp/                           \
-    && mkdir -p /usr/share/games/openttd/baseset/                \
-    && cd /usr/share/games/openttd/baseset/                      \
-    && tar xvf /tmp/opengfx-${OPENGFX_VERSION}.tar               \
-    && rm -f /tmp/opengfx.*
+    && unzip /tmp/opengfx.zip -d /opt/openttd/baseset/           \
+    && rm -f /tmp/opengfx.zip
 
 COPY entrypoint.sh /entrypoint.sh
 

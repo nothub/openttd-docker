@@ -58,4 +58,4 @@ fi
 chown -R openttd:openttd "$content"
 
 log "Starting server with options: ${args[*]}"
-sudo -u openttd sh -c "/usr/games/openttd ${args[*]}"
+sudo -u openttd sh -c "/opt/openttd/openttd ${args[*]}"
