@@ -1,4 +1,4 @@
-FROM debian:11
+FROM debian:12
 
 ARG OPENTTD_VERSION="13.4"
 ARG OPENTTD_CHECKSUM="943b7be04130ea790323f70bf5476ccf17692a6e89790748e90aa590b7db4370"
@@ -10,10 +10,10 @@ ARG OPENGFX_URL="https://cdn.openttd.org/opengfx-releases/${OPENGFX_VERSION}/ope
 
 RUN DEBIAN_FRONTEND=noninteractive apt-get update            \
     && apt-get install --quiet --yes --no-install-recommends \
-        libfluidsynth2                                       \
+        libfluidsynth3                                       \
         libfontconfig1                                       \
         libfreetype6                                         \
-        libicu67                                             \
+        libicu72                                             \
         liblzo2-2                                            \
         libpng16-16                                          \
         libsdl2-2.0-0                                        \
