@@ -28,5 +28,5 @@ jobs:
           context: .
           push: true
           tags: |
-            ${{ secrets.DOCKERHUB_USERNAME }}/openttd:latest
             ${{ secrets.DOCKERHUB_USERNAME }}/openttd:${{ env.OPENTTD_VERSION }}
+            ${{ secrets.DOCKERHUB_USERNAME }}/openttd:latest
