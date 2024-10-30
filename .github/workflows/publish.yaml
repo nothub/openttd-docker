@@ -1,8 +1,9 @@
 name: publish
 on:
+  workflow_dispatch:
   push:
     branches:
-      - main
+      - trunk
   schedule:
     - cron: '20 4 * * *'
 jobs:
